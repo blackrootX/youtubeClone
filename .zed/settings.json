@@ -1,0 +1,18 @@
+{
+  "languages": {
+    "CSS": {
+      "language_servers": ["!biome"],
+    },
+  },
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "tailwindCSS": {
+          "lint": {
+            "suggestCanonicalClasses": "ignore"
+          }
+        }
+      }
+    }
+  },
+}

@@ -1,6 +1,6 @@
 import { HomeLayout } from "@/modules/home/ui/layouts/home-layout";
 
-const Layout = ({ children }: LayoutProps) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
       <HomeLayout> {children}</HomeLayout>

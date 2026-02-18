@@ -1,46 +1,35 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
-import { toast } from "sonner";
-import SignIn from "@/app/(auth)/sign-in/_components/sign-in";
-import { SignUp } from "@/app/(auth)/sign-in/_components/sign-up";
+import { siGithub } from "simple-icons";
+import { Button } from "@/components/ui/button";
 import { authClient } from "@/lib/auth-client";
 
-export default function Page() {
-  useEffect(() => {
-    authClient.oneTap({
-      fetchOptions: {
-        onError: ({ error }) => {
-          toast.error(error.message || "An error occurred");
-        },
-        onSuccess: () => {
-          toast.success("Successfully signed in");
-        },
-      },
-    });
-  }, []);
-
+export default function SignInPage() {
   return (
-    <div className="w-full">
-      <div className="flex items-center flex-col justify-center w-full md:py-10">
-        <div className="w-full max-w-md">
-          <Tabs
-            tabs={[
-              {
-                title: "Sign In",
-                value: "sign-in",
-                content: <SignIn />,
-              },
-              {
-                title: "Sign Up",
-                value: "sign-up",
-                content: <SignUp />,
-              },
-            ]}
-          />
-        </div>
+    <div className="flex flex-col items-center gap-6 w-full max-w-sm">
+      <div className="flex flex-col items-center gap-2 text-center">
+        <h1 className="text-2xl font-semibold">Sign in</h1>
+        <p className="text-sm text-muted-foreground">
+          Continue with your GitHub account
+        </p>
       </div>
+      <Button
+        className="w-full"
+        variant="outline"
+        onClick={() =>
+          authClient.signIn.social({ provider: "github", callbackURL: "/" })
+        }
+      >
+        <svg
+          role="img"
+          viewBox="0 0 24 24"
+          className="mr-2 h-4 w-4 fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d={siGithub.path} />
+        </svg>
+        Continue with GitHub
+      </Button>
     </div>
   );
 }

@@ -36,7 +36,12 @@ export const MainSection = () => {
         <SidebarMenu>
           {items.map((item) => (
             <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton asChild tooltip={item.title} isActive={false}>
+              <SidebarMenuButton
+                asChild
+                tooltip={item.title}
+                isActive={false}
+                onClick={() => {}}
+              >
                 <Link href={item.url} className="flex items-center gap-4">
                   <item.icon />
                   <span className="text-sm">{item.title}</span>

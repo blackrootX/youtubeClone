@@ -1,4 +1,7 @@
 {
+  "code_actions_on_format": {
+    "source.organizeImports.biome": true,
+  },
   "languages": {
     "CSS": {
       "language_servers": ["!biome"],
@@ -9,10 +12,10 @@
       "settings": {
         "tailwindCSS": {
           "lint": {
-            "suggestCanonicalClasses": "ignore"
-          }
-        }
-      }
-    }
+            "suggestCanonicalClasses": "ignore",
+          },
+        },
+      },
+    },
   },
 }
